@@ -61,7 +61,7 @@
 
 ### 大学生博客平台的总体功能结构
 
-![总体功能结构](C:\Blog\College-students-blog-platform\image\pattern.png)
+![总体功能结构](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/pattern.png)
 
 ### 大学生博客平台的主要界面设计
 
