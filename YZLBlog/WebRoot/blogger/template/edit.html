@@ -1,0 +1,512 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>edit</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+<style>
+Body {font-size:12px;margin:0px;font-family:宋体;height:100%}
+.BodyTab {width:100%;border:1px #cccccc solid;height:100%}
+.AllTab {border:0px;width:100%;height:100%}
+#BodyFoot {padding:5px}
+#BodyContent {border:1px #cccccc solid;height:100%;overflow:hidden}
+.MenuLine {font-size:0px;width:2px;background:url(../images/ico.gif) 0px -83px}
+#BodyTop {height:56px;border-bottom:1px #cccccc solid;background:#F7F5F4}
+#BodyTop td {height:50%}
+#BodyTop div {float:left;overflow:hidden}
+#BodyTop img {cursor:hand;border:0px;width:100%;height:100%}
+.MSpanL {word-break:break-all;padding:3px 0px 0px 4px;font-size:80%;width:42px;height:13px;float:left;overflow:hidden}
+.MSpanR {margin-left:1px;width:14px;height:18px;float:left;overflow:hidden}
+#DivNone {text-align:center;padding:3px;position:absolute;z-index:10;width:10px;height:10px;border:1px #2EA7FB solid;left:10px;top:52px;background:#ffffff;overflow:hidden}
+#DivNone a {text-decoration:none;color:#666666;border:1px #9CD2FD solid}
+#DivNone a:hover {text-decoration:none;color:#ff0000;background:#FFECEC;border:1px #FF7800 solid}
+.button {color:#0D6598;width:80px;height:20px;background:url(../images/ico.gif);border:0px}
+.SizeDiv {word-break:break-all;cursor:default;line-height:17px;padding-left:2px;height:18px;text-align:left;overflow:hidden}
+#FileText {padding-top:15px;height:30px}
+.ColorGif {width:15px;height:15px;}
+.ColorGifOn {width:15px;height:15px;background:url(../images/ico.gif) -276px -26px}
+.M1 {height:18px;border:1px #F7F5F4 solid}
+.M1on {height:18px;border:1px #2EA7FB solid;background:#DDF0FF}
+.M1down {height:17px;padding-top:1px;border:1px #0078FF solid;background:#CBE7FD}
+
+.M2 {height:20px;background:url(../images/ico.gif) -0px -0px}
+.M2on {height:20px;background:url(../images/ico.gif) -0px -20px}
+.M2down {height:20px;background:url(../images/ico.gif) -0px -40px}
+
+.M3 {width:61px;margin-left:5px;letter-spacing:1px;color:#666666;padding:1px;height:19px;background:url(../images/ico.gif) -0px -61px}
+.M3on {width:61px;margin-left:5px;letter-spacing:1px;color:#666666;padding:1px;height:19px;background:url(../images/ico.gif) -64px -61px}
+.M3down {width:61px;margin-left:5px;letter-spacing:1px;color:#666666;padding:2px 1px 0px 1px;height:18px;background:url(../images/ico.gif) -128px -61px}
+
+.M4 {margin-left:1px;height:46px;border:1px #F7F5F4 solid}
+.M4on {margin-left:1px;height:46px;border:1px #2EA7FB solid;background:#DDF0FF}
+.M4down {margin-left:1px;height:45px;padding-top:1px;border:1px #0078FF solid;background:#CBE7FD}
+.FaceOn {background:#2EA7FB}
+</style>
+
+<script type="text/javascript" language="javascript">
+//表情图片所在路径 默认共135个 从0.gif - 134.gif,可自行修改
+var FaceUrl = "../images/face/";
+
+//信纸图片所在路径,默认10张  从 1.jpg - 10.jpg,可自行修改 
+var BgUrl   = "../images/bg/"
+
+function $(sID) {return document.getElementById(sID)}
+var OnMenu=null;
+var FullWin=0,OldWinW,OldWinH,OldWinBg;
+function GetMenu(Num) {
+HtmlEditor.focus();
+var R = self['HtmlEditor'].document.selection.createRange().duplicate();
+Ebody=E.document.getElementsByTagName("BODY")[0];
+var _Text=R.htmlText;
+switch (Num) {
+	case 1:	E.document.execCommand("Bold");break;
+	case 2:	E.document.execCommand("Italic");break;
+	case 3:	E.document.execCommand("Underline");break;
+	case 6:	var _Text=RemoveHTML(_Text);
+		_Text=window.prompt('请先输入要加入发光效果的文字:',_Text); 
+		if (_Text!=null) R.pasteHTML("<span class='ShowText'>"+_Text+"</span>");
+		break;
+	case 7:	E.document.execCommand('CreateLink',true,'true')
+		break;
+	case 8:	if(_Text!='') {
+			var _CText=RemoveHTML(_Text);
+			Ebody.innerHTML=Ebody.innerHTML.replace(_Text,_CText);
+			}else{
+			if(confirm('没有选择清除对象,是要清除全部格式,仅保留基本文字?')){
+			Ebody.innerText=Ebody.innerText
+}
+			}
+		 break;
+	case 12: E.document.execCommand('Justifyleft');break;
+	case 13: E.document.execCommand('Justifycenter');break;
+	case 14: E.document.execCommand('Justifyright');break;
+	case 15: E.document.execCommand('justifyfull');break;
+//调试
+	case 22: var _Obj=parent.document.getElementById("ContentWin");
+		if(FullWin==0){
+		FullWin=1;
+		OldWinW=_Obj.style.width;
+		OldWinH=_Obj.style.height;
+		OldWinBg=_Obj.style.background;
+		_Obj.style.position="absolute"
+		_Obj.style.background="#ffffff";
+		_Obj.style.zIndex=9999;
+		_Obj.style.width="100%";
+		_Obj.style.height="100%";
+		_Obj.style.left="0px";
+		_Obj.style.top="0px";
+		$("FullWinImg").style.background='url(../images/ico.gif) -157px -143px';
+		}else{
+		FullWin=0;
+		_Obj.style.position="";
+		_Obj.style.width=OldWinW;
+		_Obj.style.height=OldWinH;
+		_Obj.style.background=OldWinBg;
+		$("FullWinImg").style.background='url(../images/ico.gif) -109px -143px';
+		}
+	$("BodyFoot").style.height=(document.documentElement.clientHeight-71)+"px";
+	break;
+	}
+}
+//插入
+var ColorSNum=0,xh_bgvalue="";
+function InfoHtml(Value,Types,Text) {
+HtmlEditor.focus();
+var R = self['HtmlEditor'].document.selection.createRange().duplicate();
+switch (Types) {
+case "img":
+	R.pasteHTML("<img src='"+Value+"'>");
+	break;
+case "textcolor":
+	if(ColorSNum==0) {E.document.execCommand('ForeColor',false,Value)}else{E.document.execCommand('BackColor',false,Value)}
+	break;
+case "fontsize":
+	$("S26_T").innerHTML=Text;
+	E.document.execCommand('fontsize',false,Value);
+	break;
+case "FontName":
+	$("S25_T").innerHTML=Text;
+	document.execCommand('FontName',false,Value)
+	break;
+case "Bg":
+	$("S24_T").innerHTML=Text;
+	if(Value==0) {
+		xh_bgvalue="";
+		E.document.body.style.background="";
+		}else{
+		xh_bgvalue=Value;
+		E.document.body.style.background="url("+Value+")";
+		}
+	break;
+	}
+MenuType(0);
+return false
+}
+
+//清除HTML
+function RemoveHTML(strText){
+var regEx = /<[^>]*>/g;
+return strText.replace(regEx, "");
+}
+
+var FileName,FileAlign=null;
+function InfoFile(TypeName){
+if (TypeName==0) {
+var Value=$("FileUrl").value;
+if (Value==""||Value=="http://") {$("FileText").innerHTML="<font color=red>请输入文件路径!</font>";return;}
+HtmlEditor.focus();
+var R = self['HtmlEditor'].document.selection.createRange();
+var _Content;
+if (FileName=="图片"){
+	_Content="<img src='"+Value+"'>";
+	if(FileAlign=="center"){_Content="<p align='"+FileAlign+"'><img src='"+Value+"'></p>"}else if(FileAlign!=null){_Content="<img src='"+Value+"' align='"+FileAlign+"'>"}
+	}else{
+	_Content=InfoFile(2);
+	if(FileAlign!==null){_Content="<p align='"+FileAlign+"'>"+_Content+"</p>"}
+	}
+	R.pasteHTML(_Content);
+	$("FileView").innerHTML="";
+	MenuType(0);
+	return
+	}
+if (TypeName==1) {
+var Value=$("FileUrl").value;
+if (Value==""||Value=="http://") {$("FileText").innerHTML="<font color=red>请输入文件路径!</font>";return;}
+	switch (FileName){
+		case "图片": $("FileView").innerHTML="<img src='"+Value+"' onerror=\"$('FileView').innerHTML='<p><br><br><font color=red>图片地址错误</font></p>'\">";break;
+		case "FLASH动画": $("FileView").innerHTML=InfoFile(2);break;
+		case "MP3/WMA音乐": $("FileView").innerHTML=InfoFile(2);break;
+		case "WMV视频": $("FileView").innerHTML=InfoFile(2);break;
+		}
+	return
+	}
+if (TypeName==2) {
+var Value=$("FileUrl").value,_ObjHtml;
+	switch (FileName){
+		case "FLASH动画": _ObjHtml="<object  classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0' width='195' height='205'><param name='movie' value='"+Value+"'><param name='quality' value='high'><param name='menu' value='false'><param name='wmode' value='transparent'><embed src='"+Value+"' width='195' height='205' quality='high' pluginspage='http://www.macromedia.com/go/getflashplayer' type='application/x-shockwave-flash' menu='false' wmode='transparent'></embed></object>";break;
+		case "MP3/WMA音乐": _ObjHtml=	"<OBJECT width='250' height='60' ID='showplay' classid='CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6'>"+
+					"<param name='URL' value='"+Value+"'>"+
+					"<param name='uiMode' value='mini'>"+
+					"<param name='PlayCount' value='0'>"+
+					"<param name='AutoStart' value='true'>"+
+					"<param name='AudioStream' value='-1'>"+
+					"<param name='AutoSize' value='-1'>"+
+					"</OBJECT>";
+		break;
+		case "WMV视频": _ObjHtml=	"<OBJECT width='250' height='250' ID='play' classid='CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6'>"+
+						"<param name='URL' value='video_url.asp?23'>"+
+						"<param name='uiMode' value='"+Value+"'>"+
+						"<param name='PlayCount' value='0'>"+
+						"<param name='AutoStart' value='true'>"+
+						"<param name='AudioStream' value='-1'>"+
+						"<param name='AutoSize' value='-1'>"+
+						"</OBJECT>";
+		break;
+		}
+	if (FileAlign!=null) {InfoFile="<p align='"+FileAlign+"'>"+_ObjHtml+"</p>"}
+	return _ObjHtml;
+	}
+FileAlign=null;
+FileName=TypeName;
+var InfoHtml=	"<table width='100%' border=0 cellSpacing=1 style='background:#9CD2FD' cellPadding=0><tr style='background:#EDF6FD'><td style='height:25px;width:60%;text-align:left;padding-left:5px;font-weight:bold;background:#9CD2FD;color:#ffffff;letter-spacing:2px'>插入"+TypeName+"</td>"+
+		"<td width='40%' align=center rowspan=3><div id='FileView' style='width:192px;height:200px;overflow:auto;text-align:center'><br><br>"+TypeName+"<br><br>预 览 区</div></td></tr>"+
+		"<tr style='background:#ffffff'><td style='height:150px;text-align:left;padding-left:15px;color:#666666' valign=top><div id='FileText'>请输入完整的URL地址,点击确定插入</div><b>URL地址:</b><br><input id='FileUrl' name='FileUrl' size='34' onblur='InfoFile(1)'><br><br><b>对齐方式</b>:<br><input type='radio' onclick='FileAlign=null' name='FA' checked>无　<input name='FA' type='radio' onclick=\"FileAlign='left'\">左对齐　<input type='radio' name='FA' onclick=\"FileAlign='center'\">居中对齐　<input name='FA' type='radio' onclick=\"FileAlign='right'\">右对齐</td></tr>"+
+		"<tr style='background:#ffffff'><td style='height:30px'><input value='确定' type='button' class='button' onclick='InfoFile(0)'>　<input value='预览' type='button' class='button' onclick='InfoFile(1)'></td></tr></table>";
+return InfoHtml;
+}
+var DivNoneH,DivNoneT,DivNoneN,OnSMenu;
+function ChangeDiv(_DW,_DH) {
+if(_DW!=0&&_DH!=0) {
+	$("DivNone").innerHTML="<p align=left>请稍候...</p>";
+	DivNoneN=0;
+	$("DivNone").style.width=_DW+'px';
+	$("DivNone").style.height='0px';
+	var _L;
+	if(OnMenu!=null){_L=$(OnMenu).L-_DW/2}else{_L=$(OnSMenu).L-_DW/2}
+	if(_L<5)_L=5;
+	var _SeenW=document.body.clientWidth;
+	if(_DW+_L>_SeenW) _L=_SeenW-_DW-12;
+	$("DivNone").style.left=_L+"px";
+	DivNoneH=_DH
+}
+var _H=$("DivNone").clientHeight;
+if (_H<DivNoneH-20){DivNoneN=DivNoneN+20}else{DivNoneN=DivNoneN+1}
+if (_H<DivNoneH) {
+	$("DivNone").style.height=DivNoneN+"px"
+	DivNoneT=window.setTimeout("ChangeDiv(0,0)",10)
+	}else{
+	if(OnMenu!=null) {
+		switch (OnMenu) {
+			//表情
+			case "S16": var FaceStr="";var ii=1;for(var i=0;i<=134;i++) {
+				FaceStr=FaceStr+"<td onmouseover=\"this.style.backgroundColor='#CFE5FE'\" onmouseout=\"this.style.backgroundColor=''\"><img src='"+FaceUrl+i+".gif' onclick=\"InfoHtml(this.src,'img',0)\"></td>";
+				ii++;
+				if(ii==16&&i<134) {FaceStr=FaceStr+"</tr><tr style='background:#ffffff'>";ii=1}
+				}
+				$("DivNone").innerHTML="<table class='AllTab' style='height:100%;background:#cccccc' cellSpacing=1 cellPadding=0><tr style='background:#ffffff'>"+FaceStr+"</tr></table>";
+				break;
+			//图片
+			case "S17":$("DivNone").innerHTML=InfoFile("图片");break;
+			case "S18":$("DivNone").innerHTML=InfoFile("FLASH动画");break;
+			case "S19":$("DivNone").innerHTML=InfoFile("MP3/WMA音乐");break;
+			case "S20":$("DivNone").innerHTML=InfoFile("WMV视频");break;
+			//大头贴
+			//case "S21":	var _PhotoStr=	"开发中...";
+			//	$("DivNone").innerHTML=_PhotoStr;
+			//	break;
+				}
+		}else{
+		switch (OnSMenu) {
+				case "S22": ColorSNum=0;if(ColorSelect==null){ColorSelect=drawCube()}
+							$("DivNone").innerHTML=ColorSelect;break;
+				case "S23": ColorSNum=1;if(ColorSelect==null){ColorSelect=drawCube()}
+							$("DivNone").innerHTML=ColorSelect;break;
+				case "S25": var _Html=	"<a href='#' onClick=\"return InfoHtml(innerText,'FontName',innerText)\"><div class='SizeDiv' title='宋体'>宋体</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml(innerText,'FontName',innerText)\"><div class='SizeDiv' title='黑体' style='FONT-FAMILY:黑体'>黑体</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml(innerText,'FontName',innerText)\"><div class='SizeDiv' title='楷体_GB2312' style='FONT-FAMILY:楷体_GB2312'>楷体_GB2312</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml(innerText,'FontName',innerText)\"><div class='SizeDiv' title='隶书' style='FONT-FAMILY:隶书'>隶书</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml(innerText,'FontName',innerText)\"><div class='SizeDiv' title='幼圆' style='FONT-FAMILY:幼圆'>幼圆</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml(innerText,'FontName',innerText)\"><div class='SizeDiv' title='Verdana' style='FONT-FAMILY:Verdana'>Verdana</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml(innerText,'FontName',innerText)\"><div class='SizeDiv' title='Arial' style='FONT-FAMILY:Arial'>Arial</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml(innerText,'FontName',innerText)\"><div class='SizeDiv' title='Impact' style='FONT-FAMILY:Impact'>Impact</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml(innerText,'FontName',innerText)\"><div class='SizeDiv' title='Courier New' style='FONT-FAMILY:Impact'>Courier New</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml(innerText,'FontName',innerText)\"><div class='SizeDiv' title='Times New Roman' style='FONT-FAMILY:Times New Roman'>Times New Roman</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml(innerText,'FontName',innerText)\"><div class='SizeDiv' title='Georgia' style='FONT-FAMILY:Georgia'>Georgia</div></a>";
+				$("DivNone").innerHTML="<div style='line-height:40%'>"+_Html+"</div>";
+				break;
+				case "S26": var _Html=	"<a href='#' onClick=\"return InfoHtml(1,'fontsize',innerText)\"><div class='SizeDiv' title='1.极小'>1.极小</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml(2,'fontsize',innerText)\"><div class='SizeDiv' title='2.特小'>2.特小</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml(3,'fontsize',innerText)\"><div class='SizeDiv' title='3.偏小'>3.偏小</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml(4,'fontsize',innerText)\"><div class='SizeDiv' title='4.适中'>4.适中</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml(5,'fontsize',innerText)\"><div class='SizeDiv' title='5.偏大'>5.偏大</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml(6,'fontsize',innerText)\"><div class='SizeDiv' title='6.特大'>6.特大</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml(7,'fontsize',innerText)\"><div class='SizeDiv' title='7.极大'>7.极大</div></a>";
+				$("DivNone").innerHTML="<div style='line-height:40%'>"+_Html+"</div>";
+				break;
+				//信纸
+				case "S24": var _Html=	"<a href='#' onClick=\"return InfoHtml(0,'Bg','信纸')\"><div class='SizeDiv' title='移除信纸'>空白</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml('"+BgUrl+"1.jpg','Bg',innerText)\"><div class='SizeDiv' title='信纸01'>信纸01</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml('"+BgUrl+"2.jpg','Bg',innerText)\"><div class='SizeDiv' title='信纸02'>信纸02</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml('"+BgUrl+"3.jpg','Bg',innerText)\"><div class='SizeDiv' title='信纸03'>信纸03</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml('"+BgUrl+"4.jpg','Bg',innerText)\"><div class='SizeDiv' title='信纸04'>信纸04</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml('"+BgUrl+"5.jpg','Bg',innerText)\"><div class='SizeDiv' title='信纸05'>信纸05</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml('"+BgUrl+"6.jpg','Bg',innerText)\"><div class='SizeDiv' title='信纸06'>信纸06</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml('"+BgUrl+"7.jpg','Bg',innerText)\"><div class='SizeDiv' title='信纸07'>信纸07</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml('"+BgUrl+"8.jpg','Bg',innerText)\"><div class='SizeDiv' title='信纸08'>信纸08</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml('"+BgUrl+"9.jpg','Bg',innerText)\"><div class='SizeDiv' title='信纸09'>信纸09</div></a><br>"+
+							"<a href='#' onClick=\"return InfoHtml('"+BgUrl+"10.jpg','Bg',innerText)\"><div class='SizeDiv' title='信纸10'>信纸10</div></a>";
+				$("DivNone").innerHTML="<div style='line-height:40%'>"+_Html+"</div>";
+				break;
+				}
+		}
+	}
+}
+
+function MenuType(DivId,Num,_W,_H) {
+if (DivId==0) {
+	$("DivNone").innerHTML="";
+	$("DivNone").style.display="none";
+	if($(OnMenu)!=null) {$(OnMenu).className='M4'}
+	OnMenu=null;
+	OnSMenu=null;
+	return;
+	}
+switch (Num) {
+	case 0: $(DivId).className='M4on';break;
+	case 1: if(OnMenu!=DivId) {$(DivId).className='M4'}
+		break;
+	case 2: $(DivId).className='M4down';break;
+	case 3: $(DivId).className='M4on';
+		if(OnMenu!=DivId) {
+			if(OnMenu!=null) MenuType(0);
+			OnMenu=DivId;
+			$("DivNone").style.display='';
+			$("DivNone").style.top="52px";
+			ChangeDiv(_W,_H)
+			}else{
+			OnMenu=null;
+			$("DivNone").style.display="none"
+			}
+		break;
+	case 4: if(OnMenu!=null) MenuType(0);
+		if(OnSMenu==DivId) {$("DivNone").style.display='none';OnSMenu=null;return}
+		$("DivNone").style.display='';
+		var _WT=52;
+		if(DivId!="S22"&&DivId!="S23") _WT=4;
+		$("DivNone").style.top=_WT+"px";
+		OnSMenu=DivId;
+		ChangeDiv(_W,_H)
+		break;
+	}
+}
+
+//改变CSS
+function C(Obj,Cname) {if($(Obj)) $(Obj).className=Cname}
+
+var xh_content;
+function BlankHtml() {
+var header =	"<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"../css/blank.css\" /></head>";
+if (xh_bgvalue!=""){
+	header=header+"<body style='background:url("+xh_bgvalue+")'>";
+	}else{
+	header=header+"<body>";
+	}
+var footer =	"</body></html>";
+return header+xh_content+footer;
+
+}
+
+//色块
+var s = "";
+var hex = new Array(6)
+hex[0] = "FF"
+hex[1] = "CC"
+hex[2] = "99"
+hex[3] = "66"
+hex[4] = "33"
+hex[5] = "00"
+function drawCell(red, green, blue) {
+	var color = '#' + red + green + blue;
+	s += '<TD BGCOLOR="' + color + '">';
+	s += '<IMG src="../images/b.gif" class="ColorGif" onmouseover=\'this.className="ColorGifOn"\' onmouseout=\'this.className="ColorGif"\' onclick=\'InfoHtml("'+color+'","textcolor")\'>';
+	s += '</TD>';
+}
+function drawRow(red, blue) {
+	s += '<TR>';
+	for (var i = 0; i < 6; ++i) {
+		drawCell(red, hex[i], blue)
+	}
+	s += '</TR>';
+}
+function drawTable(blue) {
+	s += '<TABLE CELLPADDING=0 CELLSPACING=0 border=0>';
+	for (var i = 0; i < 6; ++i) {
+		drawRow(hex[i], blue)
+	}
+	s += '</TABLE>';
+}
+function drawCube() {
+	s += '<TABLE border=0 CELLPADDING=0 CELLSPACING=0><TR>';
+	for (var i = 0; i < 3; ++i) {
+		s += '<TD BGCOLOR="#FFFFFF">';
+		drawTable(hex[i])
+		s += '</TD>';
+	}
+	s += '</TR><TR>';
+	for (var i = 3; i < 6; ++i) {
+		s += '<TD BGCOLOR="#FFFFFF">';
+		drawTable(hex[i])
+		s += '</TD>';
+	}
+	s += '</TR></TABLE>';
+	return s;
+}
+//获取URL参数
+function GetUrlParms() {
+var args=new Object();
+var query=location.search.substring(1);
+var pairs=query.split("&");
+for(var i=0;i<pairs.length;i++) {   
+	var pos=pairs[i].indexOf('=');
+	if(pos==-1) continue;
+	var argname=pairs[i].substring(0,pos);
+	var value=pairs[i].substring(pos+1);
+	args[argname]=unescape(value);
+	}
+return args;
+}
+var args = new Object();
+args = GetUrlParms();
+//加载完毕事件
+var ColorSelect=null,ContentId,E,Ebody,BgId,WinId;
+window.onload = function(){
+ContentId = parent.document.getElementsByName(args["I"])[0];
+BgId = parent.document.getElementsByName(args["B"])[0];
+xh_bgvalue=BgId.value;
+E = window.frames["HtmlEditor"];
+xh_content=ContentId.value
+E.document.open();
+E.document.write(BlankHtml());
+E.document.close();
+E.document.designMode="on";
+//获取可工作区高度
+$("BodyFoot").style.height=(document.documentElement.clientHeight-71)+"px";
+setLinkedField()
+}
+
+//父窗口表单提交
+function setLinkedField() {
+	if (! ContentId) return ;
+	var oForm = ContentId.form ;
+	if (!oForm) return ;
+	oForm.attachEvent("onsubmit", AttachSubmit);
+	oForm.attachEvent("onreset", AttachReset);
+}
+// 提交
+function AttachSubmit() {
+	var html = E.document.getElementsByTagName("BODY")[0].innerHTML;
+	if ( (html.toLowerCase() == "<br>&nbsp;") || (html.toLowerCase() == "<br>") ){
+		html = "";
+	}
+	ContentId.value = html;
+	BgId.value = xh_bgvalue;
+} 
+// Reset事件
+function AttachReset() {
+	E.document.getElementsByTagName("BODY")[0].innerHTML = ContentId.value;
+}
+</script>
+
+
+
+
+  </head>
+  
+<body scroll=no>
+<noscript>温馨提示：<br><br>您的浏览器不支持Javascript，请进入“工具”->“Internet选项”->“高级”选项卡下设置</noscript>
+
+<table class='BodyTab' cellSpacing=0 cellPadding=0 align=center>
+<tr><td id='BodyTop'>
+
+<table width='100%' height='100%' border=0 cellSpacing=0 cellPadding=0><tr><td width=214 nowrap>
+<div id='S24' L='34' class='M3' title="信纸"><div id="S24_T" class="MSpanL">信纸</div><div class="MSpanR"><img src='../images/b.gif' onmouseover="C('S24','M3on')" onmouseout="C('S24','M3')" onmousedown="C('S24','M3down')" onmouseup="C('S24','M3');MenuType('S24',4,55,255)"></div></div>
+<div id='S25' L='102' class='M3' title="字体选择"><div id="S25_T" class="MSpanL">字体</div><div class="MSpanR"><img src='../images/b.gif' onmouseover="C('S25','M3on')" onmouseout="C('S25','M3')" onmousedown="C('S25','M3down')" onmouseup="C('S25','M3');MenuType('S25',4,55,255)"></div></div>
+<div id='S26' L='170' class='M3' title="文本大小"><div id="S26_T" class="MSpanL">字号</div><div class="MSpanR"><img src='../images/b.gif' onmouseover="C('S26','M3on')" onmouseout="C('S26','M3')" onmousedown="C('S26','M3down')" onmouseup="C('S26','M3');MenuType('S26',4,55,163)"></div></div>
+</td><td rowspan=2 class='MenuLine'>&nbsp;</td><td width=90>
+<div id='A1' style="margin-left:6px;width:18px" class='M1' onmouseover="C(this.id,'M1on')" onmouseout="C(this.id,'M1')" onmousedown="C(this.id,'M1down')" onmouseup="C(this.id,'M1on');GetMenu(12)" title="左对齐"><img src='../images/b.gif' style='background:url(../images/ico.gif) -200px -2px'></div>
+<div id='A2' style="margin-left:8px;width:18px" class='M1' onmouseover="C(this.id,'M1on')" onmouseout="C(this.id,'M1')" onmousedown="C(this.id,'M1down')" onmouseup="C(this.id,'M1on');GetMenu(13)" title="居中对齐"><img src='../images/b.gif' style='background:url(../images/ico.gif) -218px -2px'></div>
+<div id='A3' style="margin-left:8px;width:18px" class='M1' onmouseover="C(this.id,'M1on')" onmouseout="C(this.id,'M1')" onmousedown="C(this.id,'M1down')" onmouseup="C(this.id,'M1on');GetMenu(14)" title="右对齐"><img src='../images/b.gif' style='background:url(../images/ico.gif) -235px -2px'></div>
+</td><td rowspan=2 class='MenuLine'>&nbsp;</td><td rowspan=2 width=192 nowrap>
+<div id='S16' L='326' style="margin-left:5px;width:32px" class='M4' onmouseover="MenuType(this.id,0)" onmouseout="MenuType(this.id,1)" onmousedown="MenuType(this.id,2)" onmouseup="MenuType(this.id,3,500,250)" title="插入表情"><img src='../images/b.gif' style='background:url(../images/ico.gif) -13px -90px'></div>
+<div id='S17' L='361' style="width:32px" class='M4' onmouseover="MenuType(this.id,0)" onmouseout="MenuType(this.id,1)" onmousedown="MenuType(this.id,2)" onmouseup="MenuType(this.id,3,500,216)" title="插入图片"><img src='../images/b.gif' style='background:url(../images/ico.gif) -58px -90px'></div>
+<div id='S18' L='398' style="width:36px" class='M4' onmouseover="MenuType(this.id,0)" onmouseout="MenuType(this.id,1)" onmousedown="MenuType(this.id,2)" onmouseup="MenuType(this.id,3,500,216)" title="插入FLASH动画"><img src='../images/b.gif' style='background:url(../images/ico.gif) -107px -90px'></div>
+<div id='S19' L='435' style="width:32px" class='M4' onmouseover="MenuType(this.id,0)" onmouseout="MenuType(this.id,1)" onmousedown="MenuType(this.id,2)" onmouseup="MenuType(this.id,3,500,216)" title="插入MP3音乐"><img src='../images/b.gif' style='background:url(../images/ico.gif) -158px -90px'></div>
+<div id='S20' L='470' style="width:32px" class='M4' onmouseover="MenuType(this.id,0)" onmouseout="MenuType(this.id,1)" onmousedown="MenuType(this.id,2)" onmouseup="MenuType(this.id,3,500,216)" title="插入视频文件"><img src='../images/b.gif' style='background:url(../images/ico.gif) -204px -90px'></div>
+</td><td rowspan=2 class='MenuLine'>&nbsp;</td><td rowspan=2 width=82 nowrap>
+<div id='A4' style="margin-left:5px;width:32px" class='M4' onmouseover="C(this.id,'M4on')" onmouseout="C(this.id,'M4')" onmousedown="C(this.id,'M4down')" onmouseup="C(this.id,'M4on');document.execCommand('Undo');" title="撤消上一步操作"><img src='../images/b.gif' style='background:url(../images/ico.gif) -14px -143px'></div>
+<div id='A5' style="width:32px" class='M4' onmouseover="C(this.id,'M4on')" onmouseout="C(this.id,'M4')" onmousedown="C(this.id,'M4down')" onmouseup="C(this.id,'M4on');document.execCommand('Redo')" title="恢复撤销操作"><img src='../images/b.gif' style='background:url(../images/ico.gif) -57px -143px'></div>
+</td><td rowspan=2 class='MenuLine'>&nbsp;</td><td rowspan=2>
+<!--全屏-->
+<div id='A6' style="margin-left:5px;width:32px" class='M4' onmouseover="C(this.id,'M4on')" onmouseout="C(this.id,'M4')" onmousedown="C(this.id,'M4down')" onmouseup="C(this.id,'M4on');GetMenu(22)" title="全屏模式"><img id='FullWinImg' src='../images/b.gif' style='background:url(../images/ico.gif) -109px -143px'></div>
+</td></tr><tr><td>
+<div id='A7' style="margin-left:5px;width:18px;" class='M1' onmouseover="C(this.id,'M1on')" onmouseout="C(this.id,'M1')" onmousedown="C(this.id,'M1down')" onmouseup="C(this.id,'M1on');GetMenu(1)" title="加粗"><img src='../images/b.gif' style='background:url(../images/ico.gif) -95px -2px'></div>
+<div id='A8' style="margin-left:5px;width:18px" class='M1' onmouseover="C(this.id,'M1on')" onmouseout="C(this.id,'M1')" onmousedown="C(this.id,'M1down')" onmouseup="C(this.id,'M1on');GetMenu(2)" title="斜体"><img src='../images/b.gif' style='background:url(../images/ico.gif) -112px -2px'></div>
+<div id='A9' style="margin-left:5px;width:18px" class='M1' onmouseover="C(this.id,'M1on')" onmouseout="C(this.id,'M1')" onmousedown="C(this.id,'M1down')" onmouseup="C(this.id,'M1on');GetMenu(3)" title="下划线"><img src='../images/b.gif' style='background:url(../images/ico.gif) -129px -2px'></div>
+<div id='S22' L='120' style="margin-left:5px;width:22px" class='M1' onmouseover="C(this.id,'M1on')" onmouseout="C(this.id,'M1')" onmousedown="C(this.id,'M1down')" onmouseup="C(this.id,'M1on');MenuType(this.id,4,270,186)" title="文本颜色"><img src='../images/b.gif' style='background:url(../images/ico.gif) -146px -2px'></div>
+<div id='S23' L='120' style="margin-left:4px;width:22px" class='M1' onmouseover="C(this.id,'M1on')" onmouseout="C(this.id,'M1')" onmousedown="C(this.id,'M1down')" onmouseup="C(this.id,'M1on');MenuType(this.id,4,270,186)" title="文本背景"><img src='../images/b.gif' style='background:url(../images/ico.gif) -252px -2px'></div>
+<div id='A10' style="margin-left:4px;width:18px" class='M1' onmouseover="C(this.id,'M1on')" onmouseout="C(this.id,'M1')" onmousedown="C(this.id,'M1down')" onmouseup="C(this.id,'M1on');GetMenu(6)" title="发光字"><img src='../images/b.gif' style='background:url(../images/ico.gif) -166px -2px'></div>
+<div id='A11' style="margin-left:5px;width:18px" class='M1' onmouseover="C(this.id,'M1on')" onmouseout="C(this.id,'M1')" onmousedown="C(this.id,'M1down')" onmouseup="C(this.id,'M1on');GetMenu(7)" title="插入链接"><img src='../images/b.gif' style='background:url(../images/ico.gif) -274px -2px'></div>
+<div id='A12' style="margin-left:5px;width:18px" class='M1' onmouseover="C(this.id,'M1on')" onmouseout="C(this.id,'M1')" onmousedown="C(this.id,'M1down')" onmouseup="C(this.id,'M1on');GetMenu(8)" title="清除文本格式"><img src='../images/b.gif' style='background:url(../images/ico.gif) -184px -2px'></div>
+</td>
+<td><div id='A13' style="margin-left:6px;width:74px" class='M1' onmouseover="C(this.id,'M1on')" onmouseout="C(this.id,'M1')" onmousedown="C(this.id,'M1down')" onmouseup="C(this.id,'M1on');GetMenu(15)"><img src='../images/b.gif' style='background:url(../images/ico.gif) -95px -23px' title="自动对齐"></div></td></tr></table>
+</td></tr><tr><td id='BodyFoot'>
+<div id="BodyContent"><IFRAME class="HtmlEditor" ID="HtmlEditor" name="HtmlEditor" style="height:100%;width:100%" frameBorder="0" marginHeight=0 marginWidth=0 src="about:blank"></IFRAME></div>
+</td></tr></table>
+<div id="DivNone" style="display:none" onMouseLeave="MenuType(0)"></div>
+  </body>
+</html>

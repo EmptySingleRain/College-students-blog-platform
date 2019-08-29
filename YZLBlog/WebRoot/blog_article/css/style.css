@@ -1,0 +1,96 @@
+ /*评论板块*/
+   .comment{
+	text-align:right;
+	font-weight:bold;
+	font-size:14px;
+}
+
+   .comment_content{
+   border:1;
+   background-color:transparent;
+   /*scrollbar-arrow-color:yellow;
+   scrollbar-base-color:lightsalmon;
+   overflow:hidden;*/
+   color:#ffffff;
+   height:auto;  
+   }
+
+/*标题*/
+#title{
+	font-weight:bold;
+	font-size:120%;
+	color:white;
+	
+	}
+#h1{
+	font-size:150%;
+	font-weight:bold;
+	color:white;
+	}
+
+/*博文样式*/
+#blogContainer{
+border:1px solid black;
+
+}
+
+.p{text-indent:2em}
+
+/*左边导航的上下格式*/
+.container {
+    width: 95%;
+    max-width: 650px;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+
+
+/*格式*/
+
+
+@media only screen and (min-width: 960px) {
+        .docs-nav {
+        position: absolute;
+        top: 0;
+        width: 220px;
+
+        -webkit-transition: top linear 50ms;
+        -moz-transition: top linear 50ms;
+        -o-transition: top linear 50ms;
+        transition: top linear 50ms;
+    }
+
+    .docs-nav.fixed {
+        position: fixed;
+        top: 49px;
+        width: 220px;
+    }
+
+    .docs-nav a:hover {
+        background: #eee;
+    }
+
+    .docs-nav a:active, 
+    .docs-nav .active {
+        background: #eee;
+        border-right: 2px solid #ccc;
+    }
+
+    .docs-nav .separator {
+        height: 20px;
+    }
+
+    .docs-content {
+        padding-left: 310px;
+    }
+	
+    .container {
+        max-width: 1000px;
+        padding: 0 20px;
+    }
+
+
+}
+

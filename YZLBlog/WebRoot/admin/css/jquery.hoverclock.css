@@ -1,0 +1,137 @@
+﻿/*!
+* HoverClock(jQuery Plugin)
+* version: 1.0.0
+* Copyright (c) 2016 HoverTree
+* http://hovertree.com
+* http://hovertree.com/texiao/hoverclock/
+*/
+.hoverclockentity {
+    position: absolute;
+    opacity: 1;
+}
+
+.hoverclockfill .hoverclockentity {
+    left: 50%;
+    top: 50%;
+}
+
+.hoverclockcentre {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+}
+
+.hoverclockexpand {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+.hoverclockanchor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+}
+
+.hoverclockelement {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hoverclockexpand {
+    border-radius: 296px;
+}
+
+.hoverclockcircle-1 {
+    background: white;
+    width: 12px;
+    height: 12px;
+}
+
+.hoverclockcircle-2 {
+    background: #FA9F22;
+    width: 8px;
+    height: 8px;
+}
+
+.hoverclockcircle-3 {
+    background: black;
+    width: 4px;
+    height: 4px;
+}
+
+.hoverclocksecond {
+    transform: rotate(180deg);
+}
+
+.hoverclockminute {
+    transform: rotate(54deg);
+}
+
+.hoverclocksecond-hand {
+    width: 2px;
+    height: 164px;
+    background: #FA9F22;
+    transform: translate(-50%,-100%) translateY(24px);
+}
+
+.hoverclockhour {
+    transform: rotate(304.5deg);
+}
+
+.hoverclockthin-hand {
+    width: 4px;
+    height: 50px;
+    background: white;
+    transform: translate(-50%,-100%);
+}
+
+.hoverclockfat-hand {
+    width: 10px;
+    height: 57px;
+    border-radius: 10px;
+    background: white;
+    transform: translate(-50%,-100%) translateY(-18px);
+}
+
+.hoverclockminute-hand {
+    height: 112px;
+}
+
+.hoverclockhour-text {
+    position: absolute;
+    font: 40px Hei, Helvetica, Arial, sans-serif;
+    color: white;
+    transform: translate(-50%,-50%);
+}
+
+.hour-10 {
+    padding-left: 0.4ex;
+}
+.hour-11 {
+    padding-left: 0.25ex;
+}
+
+.hoverclockminute-text {
+    position: absolute;
+    font: 12px Avenir Next, Helvetica, Arial, sans-serif;
+    color: white;
+    transform: translate(-50%,-50%);
+}
+
+.hoverclockminute-line {
+    background: white;
+    width: 1px;
+    height: 9px;
+    transform: translate(-50%,-100%) translateY(-131px);
+    opacity: 0.34;
+}
+
+.hoverclocktext{background-color:transparent;text-align:center;font-size:12px;margin:0px auto;left:0px;right:0px;overflow:hidden}
+.hoverclocktext a{text-decoration:none}

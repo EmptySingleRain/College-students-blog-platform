@@ -1,0 +1,18 @@
+body{
+padding:5px;
+word-break:break-all;
+font-size:14px;
+margin:0px;
+scrollbar-face-color: #F7F5F4;
+scrollbar-highlight-color: #cccccc;
+scrollbar-shadow-color: #cccccc;
+scrollbar-3dlight-color: #ffffff;
+scrollbar-arrow-color: #cccccc;
+scrollbar-track-color: #ffffff;
+scrollbar-darkshadow-color: #ffffff;
+}
+a:link {border-bottom:1px #0000ff dashed;text-decoration:none}
+a img {border:1px #0000ff dashed}
+p {margin:3px;padding:0;}
+.ShowText {padding:3px 3px 1px 18px;background:#ffffff url(show.gif) no-repeat;margin:2px;border:1px #FF00FF solid;color:#ff0000;height:16px;font-size:12px;text-decoration:none}
+
