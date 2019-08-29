@@ -67,123 +67,123 @@
 
 1. 主页：有导航栏，可以转向博文，联系我们，后台等相关页面。以及注册和登录。Read all。
 
-![3.1](C:\Blog\College-students-blog-platform\image\3.1.png)
+![3.1](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.1.png)
 
 2. 博文页面:(有精彩博文，最新博文，博文长廊，均有左侧的导航栏，可以定位，底下可以评论)
 
 **最新博文**
 
-![3.2](C:\Blog\College-students-blog-platform\image\3.2.png)
+![3.2](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.2.png)
 
 **精彩博文**
 
-![3.3](C:\Blog\College-students-blog-platform\image\3.3.png)
+![3.3](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.3.png)
 
 3. 联系我们:
 
-![3.4](C:\Blog\College-students-blog-platform\image\3.4.png)
+![3.4](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.4.png)
 
 4. 注册页面:(有非法验证，如果不和规矩会提示)
 
-![3.5](C:\Blog\College-students-blog-platform\image\3.5.png)
+![3.5](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.5.png)
 
 5. 登录后页面:(博主，普通用户，未注册用户)
 
 **博主**
 
-![3.6](C:\Blog\College-students-blog-platform\image\3.6.png)
+![3.6](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.6.png)
 
 **普通用户：(可以申请博主)**
 
-![3.7](C:\Blog\College-students-blog-platform\image\3.7.png)
+![3.7](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.7.png)
 
-![3.8](C:\Blog\College-students-blog-platform\image\3.8.png)
+![3.8](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.8.png)
 
  **未注册用户(可以点击注册，直接跳转至注册页面)**
 
-![3.9](C:\Blog\College-students-blog-platform\image\3.9.png)
+![3.9](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.9.png)
 
 6. 博主页面下的个人信息页面(可以从本地上传头像到服务器)可以修改个人信息。
 
-![3.10](C:\Blog\College-students-blog-platform\image\3.10.png)
+![3.10](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.10.png)
 
 7. 博主页面下的我的文章(可以发布博文):
 
-![3.11](C:\Blog\College-students-blog-platform\image\3.11.png)
+![3.11](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.11.png)
 
 8. 博主页面下的给我留言:
 
-![3.12](C:\Blog\College-students-blog-platform\image\3.12.png)
+![3.12](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.12.png)
 
 9.	后台管理登录页面:
 
-![3.13](C:\Blog\College-students-blog-platform\image\3.13.png)
+![3.13](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.13.png)
 
 10.	后台管理页面(左侧为各项功能)
 
-![3.14](C:\Blog\College-students-blog-platform\image\3.14.png)
+![3.14](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.14.png)
 
 11.	关于我们中平台简介和审核简介:
 
-![3.15](C:\Blog\College-students-blog-platform\image\3.15.png)
+![3.15](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.15.png)
 
-![3.16](C:\Blog\College-students-blog-platform\image\3.16.png)
+![3.16](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.16.png)
 
 12.	博文中心的页面(点击详情可以进行跳转)
 
-![3.17](C:\Blog\College-students-blog-platform\image\3.17.png)
+![3.17](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.17.png)
 
-![3.18](C:\Blog\College-students-blog-platform\image\3.18.png)
+![3.18](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.18.png)
 
 13.	博主服务的页面
 
-![3.19](C:\Blog\College-students-blog-platform\image\3.19.png)
+![3.19](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.19.png)
 
-![3.20](C:\Blog\College-students-blog-platform\image\3.20.png)
+![3.20](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.20.png)
 
 14. 用户管理的页面
 
     有伸缩功能，自适应：
 
-![3.21](C:\Blog\College-students-blog-platform\image\3.21.png)
+![3.21](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.21.png)
 
 指定用户查询，可以先查询所有存在的用户，再找其具体信息，当用户多的时候，更加便捷：
 
-![3.22](C:\Blog\College-students-blog-platform\image\3.22.png)
+![3.22](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.22.png)
 
 更新用户信息，可以有下拉框选择修改，避免错误可以直接在页面上修改，有自动填补的功能，有自适应：
 
-![3.23](C:\Blog\College-students-blog-platform\image\3.23.png)
+![3.23](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.23.png)
 
 多选删除一直有问题，所以这里还是单选删除：
 
-![3.24](C:\Blog\College-students-blog-platform\image\3.24.png)
+![3.24](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.24.png)
 
 增加用户信息，可以选择用户类型，而不是输入，避免错误：
 
-![3.25](C:\Blog\College-students-blog-platform\image\3.25.png)
+![3.25](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.25.png)
 
 15.	评论管理的页面
 
-![3.26](C:\Blog\College-students-blog-platform\image\3.26.png)
+![3.26](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.26.png)
 
 16.	个人管理的页面
 
-![3.27](C:\Blog\College-students-blog-platform\image\3.27.png)
+![3.27](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.27.png)
 
 17.	增删改查操作后的自动跳转界面(只展示一个)5秒自动跳转，如果未跳转。可以单击右边的链接进行跳转。
 
-![3.28](C:\Blog\College-students-blog-platform\image\3.28.png)
+![3.28](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/3.28.png)
 
 ### 大学生博客平台的数据库设计
 
 数据库的表:4张
 
-![4.1](C:\Blog\College-students-blog-platform\image\4.1.png)
+![4.1](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/4.1.png)
 
 数据库中的存储过程:若干
 
-![4.2](C:\Blog\College-students-blog-platform\image\4.2.png)
+![4.2](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/4.2.png)
 
 数据库的表的设计:
 
@@ -237,33 +237,33 @@
 
 关系图:
 
-![4.3](C:\Blog\College-students-blog-platform\image\4.3.png)
+![4.3](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/4.3.png)
 
 ### 大学生博客平台的项目文件目录结构
 
 `Src`目录中:`JavaBean`和`Servlet`等`Java`文件:
 
-![5.1](C:\Blog\College-students-blog-platform\image\5.1.png)
+![5.1](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/5.1.png)
 
 `Jar`包的引用:
 
-![5.2](C:\Blog\College-students-blog-platform\image\5.2.png)
+![5.2](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/5.2.png)
 
 `WebRoot`中的文件，`Web`工程主要页面和文件夹：
 
-![5.3](C:\Blog\College-students-blog-platform\image\5.3.png)
+![5.3](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/5.3.png)
 
 `admin`中文件夹中的文件:
 
-![5.4](C:\Blog\College-students-blog-platform\image\5.4.png)
+![5.4](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/5.4.png)
 
 `blog_article`,`blogger`,`css`,`jqAlert`文件夹中的内容:
 
-![5.5](C:\Blog\College-students-blog-platform\image\5.5.png)
+![5.5](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/5.5.png)
 
 剩下的文件夹的内容:
 
-![5.6](C:\Blog\College-students-blog-platform\image\5.6.png)
+![5.6](https://github.com/EmptySingleRain/College-students-blog-platform/blob/master/image/5.6.png)
 
 ## 完整程序导入流程
 
